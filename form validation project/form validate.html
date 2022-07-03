@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form validate</title>
+    <style>
+        body {
+            background-color: rgb(23, 119, 184);
+        }
+
+        #form-box {
+            background-color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            margin-left: 500px;
+            margin-top: 100px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            margin: 6px 0px;
+        }
+
+        #submit {
+            border: 0px;
+            background-color: orange;
+            width: 200px;
+            padding: 3px 10px;
+            border-radius: 10px;
+        }
+
+        span {
+            color: red;
+            font-weight: bold;
+            padding: 7px 7px 7px 0px;
+        }
+
+        /* #Show{
+            border: 0px;
+            width: 200px;
+            padding: 3px 10px;
+            margin: 10px 10px 10px 0px;
+            border-radius: 10px;
+            background-color: salmon;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="form-box">
+        <form action="" onsubmit="return validationForm()">
+            <label for="namebox">Name :-</label><br>
+            <input type="text" name="" id="namebox" autocomplete="off"><br>
+            <span id="span1"></span><br>
+
+            <hr>
+
+            <label for="mobilebox">Mobile :-</label><br>
+            <input type="num" name="" id="mobilebox" autocomplete="off"><br>
+            <span id="span2"></span>
+
+            <hr>
+
+            <label for="passwordbox">Password :-</label><br>
+            <input type="password" name="" id="passwordbox" class="pass" autocomplete="off"><br>
+            <span id="span3"></span>
+
+            <hr>
+
+            <label for="confirmbox">Confirm Password :-</label><br>
+            <input type="password" name="" id="confirmbox" autocomplete="off"><br>
+            <span id="span4"></span>
+
+
+            <hr>
+            <!-- <button id="Show" onclick="showing(this)">Show Password</button> -->
+
+            <input type="submit" value="submit" id="submit">
+        </form>
+    </div>
+
+
+
+
+
+
+
+    <script>
+
+        function validationForm(){
+            let Namebox = document.getElementById('namebox');
+            let Mobilebox = document.getElementById('mobilebox');
+            let Passwordbox = document.getElementById('passwordbox');
+            let Confirmbox = document.getElementById('confirmbox');
+
+
+
+
+
+            if (Namebox.value == "") {
+                document.getElementById('span1').innerText = 'Please Enter your name....!';
+                Namebox.style.border = '1px solid red';
+                return false;
+            }
+            if (Namebox.value.length < 3) {
+                document.getElementById('span1').innerText = 'Minimum 3 digit character....!';
+                Namebox.style.border = '1px solid red';
+                return false;
+            }
+            else{
+                Namebox.style.border = '1px solid green';
+                document.getElementById('span1').innerText = '';
+            }
+
+
+
+
+
+
+
+            if (Mobilebox.value == "") {
+                document.getElementById('span2').innerText = 'Please Enter Mobile Number....!';
+                Mobilebox.style.border = '1px solid red';
+                return false;
+            }
+            if (isNaN(Mobilebox.value)){
+                document.getElementById('span2').innerText = 'Only Enter the  Number....!';
+                Mobilebox.style.border = '1px solid red';
+                return false;
+            }
+            if (Mobilebox.value.length > 10){
+                document.getElementById('span2').innerText = 'Only 10 digit Number....!';
+                Mobilebox.style.border = '1px solid red';
+                return false;
+            }
+            else{
+                Mobilebox.style.border = '1px solid green';
+                document.getElementById('span2').innerText = '';
+            }
+
+
+
+
+
+
+
+            if (Passwordbox.value == "") {
+                document.getElementById('span3').innerText = 'Please Enter the password....!';
+                Passwordbox.style.border = '1px solid red';
+                return false;
+            }
+            else{
+                Passwordbox.style.border = '1px solid green';
+                document.getElementById('span3').innerText = '';
+            }
+
+
+
+
+
+            if (Confirmbox.value == '') {
+                document.getElementById('span4').innerText = '';
+                Confirmbox.style.border = '1px solid red';
+                return false;
+            }
+            if (Confirmbox.value != Passwordbox.value) {
+                document.getElementById('span4').innerText = 'Please Enter the Confirm  password....!';
+                Confirmbox.style.border = '1px solid red';
+                return false;
+            }
+            
+            else{
+                Confirmbox.style.border = '1px solid green';
+                document.getElementById('span4').innerText = '';
+            }
+        }
+
+    </script>
+</body>
+
+</html>
