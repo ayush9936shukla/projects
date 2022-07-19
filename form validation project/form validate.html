@@ -80,7 +80,8 @@
             <input type="password" name="" id="confirmbox" autocomplete="off"><br>
             <span id="span4"></span>
 
-
+            <hr>
+            <span id="span5"></span>
             <hr>
             <!-- <button id="Show" onclick="showing(this)">Show Password</button> -->
 
@@ -183,6 +184,20 @@
                 document.getElementById('span4').innerText = '';
             }
         }
+
+
+
+
+        window.addEventListener('keyup',function(event){
+            let Evnt = event.getModifierState('CapsLock');
+            // console.log(Evnt)
+            
+            if (Evnt) {
+                document.getElementById('span5').innerHTML = 'Warning! capslock is on.....!';
+            }else{
+                document.getElementById('span5').innerHTML = '';
+            }
+        })
 
     </script>
 </body>
