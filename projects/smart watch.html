@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smart watch</title>
+    <style>
+        body {
+            background-color: rgb(49, 158, 209);
+        }
+
+        #box {
+            background-color: cornsilk;
+            width: 40%;
+            height: 30vh;
+            padding-top: 10px;
+            text-align: center;
+            margin: 200px 0px 0px 450px;
+        }
+
+        h3{
+            font-family:Algerian;
+        }
+
+        #date {
+            padding: 10px;
+            font-weight: bold;
+            color: rgb(250, 64, 8);
+            font-size: 23px;
+            font-family:'Times New Roman', Times, serif;
+        }
+        #time{
+            font-weight: bold;
+            color: rgb(250, 64, 8);
+            font-size: 23px;
+            font-family:'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <h3>Date</h3>
+        <span id="date"></span>
+        <h3>Time</h3>
+        <span id="time"></span>
+    </div>
+
+
+
+
+
+    <script>
+        
+        setInterval(() => {
+            let date_Time = new Date();
+    
+            document.getElementById('date').innerHTML = date_Time.toLocaleDateString();
+            document.getElementById('time').innerHTML = date_Time.toLocaleTimeString();
+        }, 1000);
+    </script>
+</body>
+
+</html>
